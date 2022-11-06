@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Acıktım Kafe</string>
+
+    //main
+    <string name="list_daily_meal">Günün Yemeği</string>
+    <string name="collection">Özel Seçim</string>
+    <string name="list_chip_all">Hepsi</string>
+    <string name="list_chip_main">Ana Yemekler</string>
+    <string name="list_chip_drinks">İçecekler</string>
+    <string name="list_chip_desserts">Tatlılar</string>
+    <string name="list_cart_item">%1$s öge</string>
+    <string name="foodsToolbar">Yemekler</string>
+
+
+    <string name="details_info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
+    <string name="add_to_cart">Sepete Ekle</string>
+    <string name="detailsToolbar">Detaylar</string>
+
+    <string name="cart_clear">Sepeti Temizle</string>
+    <string name="clear">Temizle</string>
+    <string name="cartToolbar">Sepet</string>
+    <string name="cart_item">%1$d adet</string>
+    <string name="complete_order">Siparişi Tamamla</string>
+
+    <string name="your_orders">Siparişleriniz</string>
+
+    //login
+    <string name="email_hint">Mail Adresinizi Giriniz</string>
+    <string name="email_example">\@gmail.com</string>
+    <string name="password_hint">Şifrenizi Giriniz</string>
+    <string name="forgot_password">Şifremi unuttum</string>
+
+    <string name="login_welcome">Hoş Geldiniz! \nDevam etmek için giriş yapınız</string>
+    <string name="login_button">Giriş Yap</string>
+    <string name="login_to_register">Hesabınız Yok mu? Kayıt Olun</string>
+
+    <string name="register_welcome">Hoş Geldiniz! \nDevam etmek için kayıt olunuz</string>
+    <string name="register_button">Kayıt Ol</string>
+
+    <string name="reset_text">Şifre sıfırlama için mail adresinizi giriniz.</string>
+    <string name="reset_button">Sıfırla</string>
+    <string name="logout">Çıkış Yap</string>
+
+</resources>

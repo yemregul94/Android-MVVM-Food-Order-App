@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.MainActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_search_list"
+        android:icon="@drawable/ic_search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        android:title="Ara"
+        app:showAsAction="always|collapseActionView" />
+
+    <item
+        android:icon="@drawable/ic_sort"
+        android:title="Sırala"
+        app:showAsAction="always|collapseActionView">
+        <menu>
+            <group
+                android:id="@+id/group"
+                android:checkableBehavior="single"
+                android:icon="@drawable/ic_sort">
+                <item
+                    android:id="@+id/menu_list_sort_name_asc"
+                    android:checked="true"
+                    android:title="İsim Artan" />
+                <item
+                    android:id="@+id/menu_list_sort_name_desc"
+                    android:title="İsim Azalan" />
+                <item
+                    android:id="@+id/menu_list_sort_price_asc"
+                    android:title="Fiyat Artan" />
+                <item
+                    android:id="@+id/menu_list_sort_price_desc"
+                    android:title="Fiyat Azalan" />
+            </group>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_list_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/logout" />
+
+</menu>

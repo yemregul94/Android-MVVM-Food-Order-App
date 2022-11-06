@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_application"
+    app:startDestination="@id/foodListFragment">
+
+    <fragment
+        android:id="@+id/foodListFragment"
+        android:name="com.works.foodorderapplication.ui.main.view.FoodListFragment"
+        android:label="fragment_food_list"
+        tools:layout="@layout/fragment_food_list" >
+        <action
+            android:id="@+id/listToDetails"
+            app:destination="@id/foodDetailsFragment" />
+        <action
+            android:id="@+id/listToCart"
+            app:destination="@id/foodShoppingCartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.works.foodorderapplication.ui.main.view.FoodDetailsFragment"
+        android:label="fragment_food_details"
+        tools:layout="@layout/fragment_food_details" >
+        <action
+            android:id="@+id/detailsToCart"
+            app:destination="@id/foodShoppingCartFragment"
+            app:popUpTo="@id/foodListFragment" />
+        <argument
+            android:name="food"
+            app:argType="com.works.foodorderapplication.data.entity.Foods" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodShoppingCartFragment"
+        android:name="com.works.foodorderapplication.ui.main.view.FoodCartFragment"
+        android:label="fragment_food_shopping_cart"
+        tools:layout="@layout/fragment_food_cart" >
+        <action
+            android:id="@+id/cartToDetails"
+            app:destination="@id/foodDetailsFragment" />
+        <action
+            android:id="@+id/cartToResult"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/foodListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.works.foodorderapplication.ui.main.view.ResultFragment"
+        android:label="ResultFragment" />
+</navigation>

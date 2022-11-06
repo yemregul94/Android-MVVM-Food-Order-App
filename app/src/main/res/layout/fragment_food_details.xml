@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="detailToolbarTitle" type="String" />
+        <variable name="quantity" type="String" />
+        <variable name="total" type="String" />
+        <variable name="foodDetailsFragment" type="com.works.foodorderapplication.ui.main.view.FoodDetailsFragment" />
+        <variable name="foodObject" type="com.works.foodorderapplication.data.entity.Foods" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/list_background"
+        tools:context=".ui.main.view.FoodDetailsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_detail_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivDetailsImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/buttonDecrease"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="130dp"
+            android:background="@drawable/shape_button_left"
+            android:onClick="@{() -> foodDetailsFragment.buttonDecrease(editTextQuantity.getText().toString())}"
+            android:paddingStart="10dp"
+            android:textSize="34sp"
+            app:backgroundTint="@null"
+            app:icon="@drawable/ic_minus"
+            app:iconGravity="textEnd"
+            app:iconSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextQuantity"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextQuantity" />
+
+        <EditText
+            android:id="@+id/editTextQuantity"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:background="@drawable/shape_text_middle"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="number"
+            android:onTextChanged="@{() -> foodDetailsFragment.checkQuantity(editTextQuantity.getText().toString(), foodObject.food_price)}"
+            android:text="@{quantity}"
+            android:textColor="@color/main_color_primary"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/buttonIncrease"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonDecrease"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+            tools:text="99" />
+
+        <Button
+            android:id="@+id/buttonIncrease"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="130dp"
+            android:background="@drawable/shape_button_right"
+            android:onClick="@{() -> foodDetailsFragment.buttonIncrease(editTextQuantity.getText().toString())}"
+            android:paddingStart="10dp"
+            android:textSize="34sp"
+            app:backgroundTint="@null"
+            app:icon="@drawable/ic_plus"
+            app:iconGravity="textEnd"
+            app:iconSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextQuantity"
+            app:layout_constraintTop_toTopOf="@+id/editTextQuantity" />
+
+        <TextView
+            android:id="@+id/tvDetailsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text='@{foodObject.food_name}'
+            android:textColor="@color/text_color_secondary"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextQuantity"
+            tools:text="Yemek Adı" />
+
+        <TextView
+            android:id="@+id/tvDetailsPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text='@{foodObject.food_price + " ₺"}'
+            android:textColor="@color/main_color_light"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDetailsName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvDetailsName"
+            tools:text="Fiyatı" />
+
+        <TextView
+            android:id="@+id/textViewDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/details_info"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailsName" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_button_login"
+            android:onClick="@{() -> foodDetailsFragment.buttonAddToCart(foodObject.food_name, foodObject.food_image_name, foodObject.food_price, Integer.valueOf(editTextQuantity.getText().toString()))}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/tvCart"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text='@string/add_to_cart'
+                android:textColor="@color/text_color_primary"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvTotal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="end|center_vertical"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text='@{total + " ₺"}'
+                android:textColor="@color/text_color_primary"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5"
+                tools:text="Toplam" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

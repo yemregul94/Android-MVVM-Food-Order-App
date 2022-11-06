@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="login_background">#99000000</color>
+    <color name="list_background">#756a65</color>
+    <color name="detail_background">#FFF8ED</color>
+
+    <color name="text_color_primary">#222222</color>
+    <color name="text_color_secondary">#E4E4E4</color>
+
+</resources>

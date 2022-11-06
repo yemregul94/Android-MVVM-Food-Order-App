@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="listToolbarTitle" type="String" />
+        <variable name="userName" type="String" />
+        <variable name="cartCount" type="String" />
+        <variable name="cartTotal" type="String" />
+        <variable name="foodListFragment" type="com.works.foodorderapplication.ui.main.view.FoodListFragment" />
+        <variable name="foodListAdapter" type="com.works.foodorderapplication.ui.main.adapter.FoodListAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.view.FoodListFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/listToolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/main_color_secondary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/menu_food_list"
+            app:popupTheme="@style/MyPopupTheme"
+            app:title="@{listToolbarTitle}" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/list_background"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listToolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="190dp">
+
+                    <ImageView
+                        android:id="@+id/imageViewDaily"
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="16dp"
+                        tools:srcCompat="@drawable/ic_foods" />
+
+                    <ImageView
+                        android:id="@+id/imageViewDailyBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="4dp"
+                        android:onClick="@{() -> foodListFragment.goToDaily()}"
+                        app:srcCompat="@drawable/shape_daily_cover" />
+
+                    <TextView
+                        android:id="@+id/textViewDaily"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="45dp"
+                        android:text="@string/list_daily_meal"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textViewSelection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/collection"
+                    android:textColor="@color/text_color_secondary"
+                    android:textSize="20sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fadeScrollbars="true">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp">
+
+                        <ImageButton
+                            android:id="@+id/ibSelection1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="@{() -> foodListFragment.goToSelection(0)}"
+                            android:background="@drawable/shape_list_card"
+                            tools:srcCompat="@drawable/ic_baseline_fastfood_24" />
+
+                        <ImageButton
+                            android:id="@+id/ibSelection2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:onClick="@{() -> foodListFragment.goToSelection(1)}"
+                            android:background="@drawable/shape_list_card"
+                            tools:srcCompat="@drawable/ic_baseline_fastfood_24" />
+
+                        <ImageButton
+                            android:id="@+id/ibSelection3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:onClick="@{() -> foodListFragment.goToSelection(2)}"
+                            android:background="@drawable/shape_list_card"
+                            tools:srcCompat="@drawable/ic_baseline_fastfood_24" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            app:selectionRequired="true"
+                            app:singleSelection="true">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipAll"
+                                android:layout_width="wrap_content"
+                                android:layout_height="70dp"
+                                android:layout_weight="1"
+                                android:checkable="true"
+                                android:checked="true"
+                                android:onCheckedChanged="@{() -> foodListFragment.filterCategories(0)}"
+                                android:text="@string/list_chip_all"
+                                app:chipBackgroundColor="@android:color/transparent"
+                                app:chipIcon="@drawable/ic_all"
+                                app:chipStrokeColor="@color/main_color_dark"
+                                app:chipStrokeWidth="1dp"
+                                app:iconStartPadding="4dp" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipFoods"
+                                android:layout_width="wrap_content"
+                                android:layout_height="70dp"
+                                android:layout_weight="1"
+                                android:checkable="true"
+                                android:onCheckedChanged="@{() -> foodListFragment.filterCategories(1)}"
+                                android:text="@string/list_chip_main"
+                                app:chipBackgroundColor="@android:color/transparent"
+                                app:chipIcon="@drawable/ic_foods"
+                                app:chipStrokeColor="@color/main_color_dark"
+                                app:chipStrokeWidth="1dp"
+                                app:iconStartPadding="4dp" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipDrinks"
+                                android:layout_width="wrap_content"
+                                android:layout_height="70dp"
+                                android:layout_weight="1"
+                                android:checkable="true"
+                                android:onCheckedChanged="@{() -> foodListFragment.filterCategories(2)}"
+                                android:text="@string/list_chip_drinks"
+                                app:chipBackgroundColor="@android:color/transparent"
+                                app:chipIcon="@drawable/ic_drinks"
+                                app:chipStrokeColor="@color/main_color_dark"
+                                app:chipStrokeWidth="1dp"
+                                app:iconStartPadding="4dp" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipDesserts"
+                                android:layout_width="wrap_content"
+                                android:layout_height="70dp"
+                                android:layout_weight="1"
+                                android:checkable="true"
+                                android:onCheckedChanged="@{() -> foodListFragment.filterCategories(3)}"
+                                android:text="@string/list_chip_desserts"
+                                app:chipBackgroundColor="@android:color/transparent"
+                                app:chipIcon="@drawable/ic_desserts"
+                                app:chipStrokeColor="@color/main_color_dark"
+                                app:chipStrokeWidth="1dp"
+                                app:iconStartPadding="4dp" />
+                        </com.google.android.material.chip.ChipGroup>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:adapter="@{foodListAdapter}"
+                    android:paddingBottom="64dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@drawable/shape_list_bottom_nav"
+            android:onClick="@{() -> foodListFragment.buttonGoToCart()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@{@string/list_cart_item(cartCount)}"
+                android:textColor="@color/text_color_primary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="00 öge" />
+
+            <ImageView
+                android:id="@+id/imageViewCart"
+                android:layout_width="37dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_shopping_cart" />
+
+            <TextView
+                android:id="@+id/textViewTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="37dp"
+                android:text='@{cartTotal + " ₺"}'
+                android:textColor="@color/text_color_primary"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5"
+                tools:text="000 ₺" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
