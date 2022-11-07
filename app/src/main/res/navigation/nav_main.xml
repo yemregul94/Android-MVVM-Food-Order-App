@@ -46,5 +46,6 @@
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.works.foodorderapplication.ui.main.view.ResultFragment"
-        android:label="ResultFragment" />
+        android:label="ResultFragment"
+        tools:layout="@layout/fragment_result"/>
 </navigation>

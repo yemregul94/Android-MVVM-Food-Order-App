@@ -19,7 +19,7 @@ class UserDataSource @Inject constructor() {
                 getUser()
             }
         }.addOnFailureListener { exception ->
-            
+
         }.await()
     }
 

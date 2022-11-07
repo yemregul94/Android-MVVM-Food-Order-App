@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import com.google.android.material.snackbar.Snackbar
 import com.works.foodorderapplication.R
 import com.works.foodorderapplication.databinding.FragmentRegisterBinding
 import com.works.foodorderapplication.ui.user.UserViewModel
@@ -28,6 +29,12 @@ class RegisterFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_register, container, false)
         binding.registerFragment = this
+
+        viewModel.errorMessage.observe(viewLifecycleOwner){
+            if(it != null){
+                Snackbar.make(requireView(), it, Snackbar.LENGTH_LONG).show()
+            }
+        }
 
         return binding.root
     }
