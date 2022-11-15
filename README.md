@@ -1,7 +1,5 @@
 # Yemek Sipariş Android Uygulaması
 
-Yemek Sipariş Uygulaması tanımlama
-
 Bu uygulama, Acıktım Kafe ismini verdiğim bir restoran/kafe sipariş uygulaması modelidir. Uygulama, Retrofit yardımıyla internet üzerinden JSON formatında aldığı yemek verilerini düzenleyip liste halinde kullanıcıya sunar. Kullanıcı bu listeden istediği yemekleri, sepetine ekleyip daha sonra da sipariş verebilir. Kullanıcı tüm sipariş işlemlerini giriş yaptığı hesap üzerinden vermektedir, her kullanıcı farklı cihazlardan kendi sepetine erişebilmektedir. 
 
 ## Kullanıcı Ekranları
