@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.works.foodorderapplication.R
 import com.works.foodorderapplication.databinding.ActivityMainBinding
@@ -30,6 +31,8 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, UserActivity::class.java)
                 startActivity(intent)
                 finish()
+            }else{
+                Toast.makeText(this, "Hoş geldiniz: ${viewModel.userName.value}", Toast.LENGTH_LONG).show()
             }
         }
     }
