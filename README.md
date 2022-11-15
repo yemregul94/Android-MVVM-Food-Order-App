@@ -67,14 +67,14 @@ Uygulamada kullanılan teknolojilere ve detaylara geçmeden önce tüm ekranlard
 
 ## Kullanılar Teknolojiler ve Yapılar
 
-Kotlin & Android
-MVVM
-Retrofit
-Glide
-Firebase
-Coroutines
-Dagger & Hilt
-Data Binding
-View Binding
-Fragments
-LiveData
+#### Kotlin & Android
+#### MVVM
+#### Retrofit
+#### Glide
+#### Firebase
+#### Coroutines
+#### Dagger & Hilt
+#### Data Binding
+#### View Binding
+#### Fragments
+#### LiveData
